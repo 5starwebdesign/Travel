@@ -1,0 +1,79 @@
+<nav class="navbar navbar-default">
+	<div class="container col-md-4 pull-right">
+		<div class="navbar-header pull-right">
+			<span class="navbar-brand text-capitalize">Hi, {{vm.currentUser.username}}!</span>
+			<a class="navbar-brand text-capitalize" href="#/login">logout</a>
+		</div>
+	</div>
+	<div ng-if="vm.isAdmin" class="pull-left">
+		<a class="navbar-brand text-capitalize" href="" ng-click='goTo("admin-home")'>« back</a>
+	</div>
+	<div id="alerts-container"></div>
+</nav>
+<div class="container-fluid">
+	<form name="form" ng-init="vm.flagEdit=false">
+		<div class="row">
+			<div class="col-md-6">
+				
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-3">
+				<div class="form-group row">
+					<label for="destination" class="text-capitalize col-md-4 text-right control-label">Destination</label>
+					<div class="col-md-8">
+						<input type="text" class="form-control col-md-8" name="destination" ng-model="vm.filterData.destination">
+					</div>
+				</div>
+			</div>
+			<div class="col-md-3">
+				<div class="form-group row">
+					<label for="date" class="text-capitalize col-md-3 text-right control-label">Date</label>
+					<div class="col-md-9">
+						<input date-range-picker type="text" class="form-control date-picker col-md-9" name="date" min-date="1901-12-14" max-date="2038-01-19" ng-model="vm.filterData.date">
+					</div>
+				</div>
+			</div>
+			<div class="col-md-3">
+				<div class="form-group row">
+					<label for="comment" class="text-capitalize col-md-4 text-right control-label">Comment</label>
+					<div class="col-md-8">
+						<input type="text" class="form-control col-md-8" name="comment" ng-model="vm.filterData.comment">
+					</div>
+				</div>
+			</div>
+			<div class="col-md-3">
+				<div class="form-group text-right">
+					<button type="submit" class="btn btn-primary btn-search" data-animation="am-fade-and-slide-top" ng-click="filter()"><i class="fa fa-search"></i></button>
+					<a class="btn btn-primary btn-print" data-animation="am-fade-and-slide-top" ng-click="print(vm.currentUser.id)" href="javascript:;" target="_blank"><i class="fa fa-print"></i></a>
+					<button type="button" class="btn btn-primary" data-animation="am-fade-and-slide-top" ng-click="showModal({cmd:'create'})">Add Trip</button>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<table ng-table="vm.tableParams" class="table" show-filter="false">
+					<colgroup>
+						<col width="15%" />
+						<col width="15%" />
+						<col width="15%" />
+						<col width="20%" />
+						<col width="15%" />
+						<col width="20%" />
+					</colgroup>
+					<tr ng-repeat="(key, trip) in $data">
+						<td title="'Destination'" filter="{ destination: 'text'}" sortable="'destination'">{{trip.destination}}</td>
+						<td title="'Start Date'" filter="{ start_date: 'text'}" sortable="'start_date'">{{trip.start_date}}</td>
+						<td title="'End Date'" filter="{ end_date: 'text'}" sortable="'end_date'">{{trip.end_date}}</td>
+						<td title="'Comment'" filter="{ comment: 'text'}" sortable="'comment'">{{trip.comment}}</td>
+						<td title="'Day Count'" filter="{ day_count: 'number'}" sortable="'day_count'">{{trip.day_count}}</td>
+						<td>
+							<button type="button" class="btn btn-primary" ng-click="showModal({cmd:'edit', trips:trip});">Edit</button>
+							<button type="button" class="btn btn-danger" ng-click="showModal({cmd:'delete', trips:trip});">Delete</button>
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</form>
+</div>

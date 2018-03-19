@@ -1,0 +1,219 @@
+$mainWidth: 1000px;
+$dateRangePickerWidth: 66.66%;
+body, html {
+	height: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	background-repeat: no-repeat;
+}
+label {
+	margin-bottom: 0;
+	line-height: 38px;
+}
+.jumbotron {
+	background-color: transparent;
+}
+.input-group-addon {
+	width: auto;
+	min-width: 16px;
+	padding: 4px 5px;
+	border: none;
+	line-height: 26px;
+	background-color: #f8f8f8;
+}
+.ui-timepicker-input {
+	width: 70px;
+	text-align: center;
+}
+.container-fluid {
+	padding-bottom: 10px;
+    max-width: 1200px;
+}
+.ng-table-header {
+	text-align: left;
+}
+.modal-backdrop.am-fade {
+  opacity: .5;
+  transition: opacity .15s linear;
+  &.ng-enter {
+    opacity: 0;
+    &.ng-enter-active {
+      opacity: .5;
+    }
+  }
+  &.ng-leave {
+    opacity: .5;
+    &.ng-leave-active {
+      opacity: 0;
+    }
+  }
+}
+.modal {
+	z-index: 1050;
+	display: block;
+	.modal-dialog {
+		.modal-content {
+			.modal-body {
+				.row {
+					margin-bottom: 5px;
+				}
+			}
+            .modal-footer {
+                button {
+                    min-width: 80px;
+                }
+            }
+		}
+	}
+}
+#userSetting {
+	width: 40%;
+}
+.alert {
+	margin-bottom: 0px;
+	border: none;
+}
+
+.form-signin
+{
+    max-width: 330px;
+    padding: 15px;
+    margin: 0 auto;
+}
+.form-signin .form-signin-heading, .form-signin .checkbox
+{
+    margin-bottom: 10px;
+}
+.form-signin .checkbox
+{
+    font-weight: normal;
+}
+.form-signin .form-control
+{
+    position: relative;
+    font-size: 16px;
+    height: auto;
+    padding: 10px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.form-signin .form-control:focus
+{
+    z-index: 2;
+}
+.form-signin input[type="text"]
+{
+    margin-bottom: -1px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+.form-signin input[type="password"]
+{
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+.account-wall
+{
+    margin-top: 20px;
+    padding: 40px 0px 20px 0px;
+    background-color: #f7f7f7;
+    -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+}
+.login-title
+{
+    color: #555;
+    font-size: 18px;
+    font-weight: 400;
+    display: block;
+}
+.profile-img
+{
+    width: 96px;
+    height: 96px;
+    margin: 0 auto 10px;
+    display: block;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+}
+.need-help
+{
+    margin-top: 10px;
+}
+.new-account
+{
+    display: block;
+    margin-top: 10px;
+}
+.btn {
+    -webkit-transition: background-color 0.2s linear;
+    -moz-transition: background-color 0.2s linear;
+    transition: background-color 0.2s linear;
+
+    &:focus, &:active, &:active:focus {
+        outline-width: 0;
+        outline-color: transparent;
+    }
+}
+
+.navbar a {
+    -webkit-transition: opacity 0.2s linear;
+    -moz-transition: opacity 0.2s linear;
+    transition: opacity 0.2s linear;
+}
+
+.navbar a:hover {
+    opacity: 0.7;
+}
+
+.datepicker .btn,
+.timepicker .btn {
+    border: none;
+}
+
+.form-actions img {
+    margin-left: 4px;
+}
+
+#alerts-container {
+    position: absolute;
+    width: 30%;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+}
+
+#alerts-modal-container {
+    margin-top: 16px;
+}
+
+textarea.form-control{
+    max-width: 420px;
+}
+
+td {
+    max-width: 250px;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.btn-search {
+    margin-right: 30px;
+}
+
+.form-inline {
+    .form-control {
+        &[name=role] {
+            min-width: 0;
+        }
+    }
+
+    textarea.form-control {
+        min-width: 320px;
+    }
+}

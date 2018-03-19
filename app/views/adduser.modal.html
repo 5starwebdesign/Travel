@@ -1,0 +1,46 @@
+<div class="modal ng-scope top am-fade-and-slide-top" tabindex="-1" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content">
+      <span us-spinner spinner-key="spinner-modal"></span>
+			<div class="modal-header" ng-show="title">
+				<button type="button" class="close" ng-click="$hide()">×</button>
+				<h4 class="modal-title ng-binding" ng-bind-html="title">Title</h4>
+        <div id="alerts-modal-container"></div>
+			</div>
+			<div class="modal-body">
+				<form name="form" class="form-inline" role="form" ng-init="vm.new_user.role=vm.ROLE.ADMIN">
+					<div class="row" ng-class="{ 'has-error': form.username.$dirty && form.username.$error.required }">
+            <label for="name" class="col-md-4 text-right text-capitalize">User Name</label>
+            <input type="text" name="username" class="form-control" ng-model="vm.new_user.username" required />
+            <span ng-show="form.username.$dirty && form.username.$error.required" class="help-block col-md-offset-4">User name is required</span>
+          </div>
+          <div class="row" ng-if="vm.currentUser.role==vm.ROLE.ADMIN" ng-class="{ 'has-error': form.role.$dirty && form.role.$error.required }">
+            <label for="role" class="col-md-4 text-right text-capitalize">Role</label>
+            <button type="button" name="role" class="form-control" ng-model="vm.new_user.role" data-html="1" data-toggle="true" data-placeholder="Choose one..." bs-options="role.value as role.label for role in vm.roles" bs-select required >
+              <span class="caret"></span>
+            </button>
+            <span ng-show="form.role.$dirty && form.role.$error.required" class="help-block col-md-offset-4">User role is required</span>
+          </div>
+					<div class="row" ng-class="{ 'has-error': (form.password.$dirty && form.password.$error.required) || (form.password.$dirty && form.password.$error.minlength) || (form.password.$dirty && form.password.$error.maxlength) }">
+            <label for="password" class="col-md-4 text-right text-capitalize">Password</label>
+            <input type="password" name="password" id="password" class="form-control" ng-model="vm.new_user.password" ng-minlength="4" ng-maxlength="128" required />
+            <span ng-show="form.password.$dirty && form.password.$error.required" class="help-block col-md-offset-4">Password is required</span>
+            <span ng-show="form.password.$dirty && form.password.$error.minlength" class="help-block col-md-offset-4">Too short!</span>
+            <span ng-show="form.password.$dirty && form.password.$error.maxlength" class="help-block col-md-offset-4">Too long!</span>
+          </div>
+          <div class="row" ng-class="{ 'has-error': (form.confirmPassword.$dirty && form.confirmPassword.$error.required) || (form.confirmPassword.$dirty && form.confirmPassword.$invalid)}">
+            <label for="confirmPassword" class="col-md-4 text-right text-capitalize">Confirm Password</label>
+            <input type="password" match-password="password" name="confirmPassword" id="confirmPassword" class="form-control" ng-model="vm.new_user.confirmPassword" required />
+            <span ng-if="form.confirmPassword.$dirty && form.confirmPassword.$error.required" class="help-block col-md-offset-4">Confirm password is required!</span>
+            <span ng-if="form.confirmPassword.$dirty && form.confirmPassword.$invalid" class="help-block col-md-offset-4">Password is not matched!</span>
+          </div>
+				</form>
+			</div>
+			<div class="modal-footer form-actions">
+        <button type="button" class="btn text-capitalize" ng-click="$hide()">Cancel</button>
+        <button type="button" ng-disabled="form.$invalid || vm.dataLoading" class="btn btn-info text-capitalize" ng-click="onCreateUser(vm.new_user);">Add</button>
+        <img ng-if="vm.dataLoading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+      </div>
+		</div>
+	</div>
+</div>

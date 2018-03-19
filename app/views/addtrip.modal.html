@@ -1,0 +1,44 @@
+<div class="modal ng-scope top am-fade-and-slide-top" tabindex="-1" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<span us-spinner spinner-key="spinner-modal"></span>
+			<div class="modal-header" ng-show="title">
+				<button type="button" class="close" ng-click="$hide()">×</button>
+				<h4 class="modal-title ng-binding" ng-bind-html="title">Title</h4>
+				<div id="alerts-modal-container"></div>
+			</div>
+			<div class="modal-body">
+				<form name="form" class="form-inline" role="form">
+					<div class="row" ng-class="{ 'has-error': (form.destination.$dirty && form.destination.$error.required) || (form.destination.$dirty && form.destination.$error.maxlength)}">
+			            <label for="destination" class="control-label col-md-3 text-right text-capitalize">Destination </label>
+			            <input type="text" name="destination" class="form-control" ng-model="vm.new_trips.destination" ng-maxlength="50" required />
+			            <span ng-if="form.destination.$dirty && form.destination.$error.required" class="help-block col-md-offset-3">Destination is required</span>
+			            <span ng-if="form.destination.$dirty && form.destination.$error.maxlength" class="help-block col-md-offset-3">Too long! Maximum length is 50.</span>
+			        </div>
+					<div class="row" ng-class="{ 'has-error': (form.start_date.$dirty && form.start_date.$error.required) || (form.start_date.$dirty && form.start_date.$invalid)}">
+						<label for="start_date" class="control-label col-md-3 text-right text-capitalize">Start Date </label>
+						<input type="text" class="form-control" ng-model="vm.new_trips.start_date" min-date="1901-12-14" max-date="2038-01-19" name="start_date" data-date-format="yyyy-MM-dd" bs-datepicker required />
+						<span ng-if="form.start_date.$dirty && form.start_date.$error.required" class="help-block col-md-offset-3">Start Date is required</span>
+						<span ng-if="form.start_date.$dirty && form.start_date.$invalid" class="help-block col-md-offset-3">Invalid Date!</span>
+					</div>
+					<div class="row" ng-class="{ 'has-error': (form.end_date.$dirty && form.end_date.$error.required) || (form.end_date.$dirty && form.end_date.$invalid)}">
+						<label for="end_date" class="control-label col-md-3 text-right text-capitalize">End Date </label>
+						<input type="text" class="form-control" ng-model="vm.new_trips.end_date" min-date="1901-12-14" max-date="2038-01-19" name="end_date" data-date-format="yyyy-MM-dd" bs-datepicker required />
+						<span ng-if="form.end_date.$dirty && form.end_date.$error.required" class="help-block col-md-offset-3">End Date is required</span>
+						<span ng-if="form.end_date.$dirty && form.end_date.$invalid" class="help-block col-md-offset-3">Invalid Date!</span>
+					</div>
+					<div class="row" ng-class="{ 'has-error': (form.comment.$dirty && form.comment.$error.required) || (form.comment.$dirty && form.comment.$error.maxlength)}">
+						<label for="comment" class="control-label col-md-3 text-right text-capitalize">Comment </label>
+						<textarea type="text" class="form-control" ng-model="vm.new_trips.comment" name="comment" ng-maxlength="255" rows="6" required></textarea>
+						<span ng-if="form.comment.$dirty && form.comment.$error.required" class="help-block col-md-offset-3">Comment is required!</span>
+			            <span ng-if="form.comment.$dirty && form.comment.$error.maxlength" class="help-block col-md-offset-3">Too long! Maximum length is 255.</span>
+					</div>
+				</form>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" ng-click="$hide()">Cancel</button>
+				<button type="button" ng-disabled="form.$invalid" class="btn btn-info" ng-click="onCreateTrips(vm.new_trips);">Submit</button>
+			</div>
+		</div>
+	</div>
+</div>

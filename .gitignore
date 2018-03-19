@@ -1,0 +1,5 @@
+bower_components
+.gulp-scss-cache
+dev
+node_modules
+public

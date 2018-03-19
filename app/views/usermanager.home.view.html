@@ -1,0 +1,39 @@
+<nav class="navbar navbar-default">
+	<div class="container col-md-4 pull-right">
+		<div class="navbar-header pull-right">
+			<span class="navbar-brand text-capitalize">Hi, {{vm.currentUser.username}}!</span>
+			<a class="navbar-brand" href="#/login">Logout</a>
+		</div>
+	</div>
+	<div id="alerts-container"></div>
+</nav>
+<div class="container-fluid">
+	<form class="name">
+		<div class="row">
+			<div class="col-md-12 text-right">
+				<button class="btn btn-primary text-capitalize" ng-click="showModal({cmd: 'create'});">Add User</button>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<div class="row">
+					<div class="col-md-12">
+						<table ng-table="vm.tableParams" class="table" show-filter="false">
+							<colgroup>
+								<col width="50%" />
+								<col width="50%" />
+							</colgroup>
+							<tr ng-repeat="user in $data">
+								<td title="'Username'" filter="{ username: 'text'}" sortable="'username'">{{user.username}}</td>
+								<td>
+									<button type="button" class="btn btn-primary text-capitalize" ng-click="showModal({cmd:'edit', user:user});">edit</button>
+									<button type="button" class="btn btn-danger text-capitalize" ng-click="showModal({cmd:'delete', user:user});">delete</button>
+								</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
+</div>

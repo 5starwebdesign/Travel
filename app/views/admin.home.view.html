@@ -1,0 +1,37 @@
+<nav class="navbar navbar-default">
+	<div class="container col-md-4 pull-right">
+		<div class="navbar-header pull-right">
+			<span class="navbar-brand text-capitalize">Hi, {{vm.currentUser.username}}!</span>
+			<a class="navbar-brand" href="#/login">Logout</a>
+		</div>
+	</div>
+	<div id="alerts-container"></div>
+</nav>
+<div class="container-fluid">
+	<form name="form">
+		<div class="row">
+			<div class="col-md-12 text-right">
+				<button class="btn btn-primary" ng-click="showModal({cmd: 'create'});">Add User</button>
+			</div>
+		</div>
+
+		<div class="container-table">
+			<table ng-table="vm.tableParams" class="table" show-filter="false">
+				<colgroup>
+					<col width="30%" />
+					<col width="30%" />
+					<col width="40%" />
+				</colgroup>
+				<tr ng-repeat="user in $data">
+					<td title="'Username'" filter="{ username: 'text'}" sortable="'username'">{{user.username}}</td>
+					<td title="'Role'" filter="{ role: 'text'}" sortable="'user_type'">{{getUserLabel(user)}}</td>
+					<td>
+						<button type="button" class="btn btn-primary text-capitalize" ng-click="showModal({cmd:'edit', user:user});">edit</button>
+						<button type="button" ng-if="isSelf(user);" class="btn btn-danger text-capitalize" ng-click="showModal({cmd:'delete', user:user});">delete</button>
+						<button type="button" ng-if="isRegularUser(user);" class="btn btn-info text-capitalize" ng-click="onView(user);">view</button>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</form>
+</div>

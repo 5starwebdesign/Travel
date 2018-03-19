@@ -1,0 +1,23 @@
+{
+  "name": "travel",
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-bootstrap": "^2.2.0",
+    "angular-strap": "^2.3.10",
+    "angular-momentjs": "^0.2.2",
+    "angular-daterangepicker": "^0.2.2",
+    "angular-spinner": "^0.8.1"
+  }
+}
+

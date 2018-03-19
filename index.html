@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html ng-app="trips">
+
+<head>
+  <meta charset="utf-8" />
+  <title>Travel</title>
+  <!-- mandatary styles -->
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+  <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css" />
+  <!-- styles from plugins -->
+  <link rel="stylesheet" href="bower_components/bootstrap-daterangepicker/daterangepicker.css" />
+  <link rel="stylesheet" href="node_modules/ng-table/bundles/ng-table.min.css" />
+
+  <!-- custom styles -->
+  <link rel="stylesheet" type="text/css" href="public/styles/app.css">
+</head>
+
+<body>
+  <div ng-view></div>
+  <span us-spinner spinner-key="spinner"></span>
+  <!-- mandatary plugins -->
+  <script src="bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="bower_components/angular/angular.min.js"></script>
+  <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="bower_components/moment/min/moment.min.js"></script>
+  <!-- plugins -->
+  <script src="node_modules/angular-animate/angular-animate.min.js"></script>
+  <script src="node_modules/angular-sanitize/angular-sanitize.min.js"></script>
+  <script src="node_modules/angular-resource/angular-resource.min.js"></script>
+  <script src="node_modules/angular-route/angular-route.min.js"></script>
+  <script src="node_modules/angular-cookies/angular-cookies.min.js"></script>
+  <script src="node_modules/angular-password/angular-password.min.js"></script>
+  <script src="node_modules/angular-mocks/angular-mocks.js"></script>
+  <script src="node_modules/ng-table/bundles/ng-table.min.js"></script>
+
+  <script src="bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
+  <script src="bower_components/angular-daterangepicker/js/angular-daterangepicker.js"></script>
+  <script src="bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
+  <script src="bower_components/angular-strap/dist/angular-strap.min.js"></script>
+  <script src="bower_components/angular-strap/dist/angular-strap.tpl.min.js"></script>
+  <script src="bower_components/angular-momentjs/angular-momentjs.min.js"></script>
+  <script src="bower_components/spin.js/spin.js"></script>
+  <script src="bower_components/angular-spinner/angular-spinner.js"></script>
+
+  <!-- custom js -->
+  <script src="public/js/app.js"></script>
+  <!-- services -->
+  <script src="public/js/services/authentication.service.js"></script>
+  <script src="public/js/services/flash.service.js"></script>
+  <script src="public/js/services/RestAPI.service.js"></script>
+  <!-- controllers -->
+  <script src="public/js/controllers/login.controller.js"></script>
+  <script src="public/js/controllers/register.controller.js"></script>
+  <script src="public/js/controllers/regularuser.home.controller.js"></script>
+  <script src="public/js/controllers/usermanager.home.controller.js"></script>
+  <script src="public/js/controllers/admin.home.controller.js"></script>
+</body>
+
+</html>
